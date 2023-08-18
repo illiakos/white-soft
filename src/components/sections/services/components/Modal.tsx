@@ -5,7 +5,8 @@ import {BiErrorCircle} from "react-icons/bi";
 interface ModalProps {
     trigger: boolean;
 }
-
+// const Modal: FC<ModalProps> = ({trigger}) {}
+// export default Modal
 export default function Modal({ trigger } :ModalProps) {
 
 
