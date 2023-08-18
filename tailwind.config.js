@@ -5,6 +5,31 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+
+  daisyui: {
+    themes: [
+      {
+        whiteSoft: {
+
+          "primary": "#23324D",
+
+          "secondary": "#d926a9",
+
+          "accent": "#1fb2a6",
+
+          "neutral": "#2a323c",
+
+          "info": "#23324D",
+
+          "success": "#36d399",
+
+          "warning": "#fbbd23",
+
+          "error": "#f87272",
+        },
+      },
+    ],
+  },
   theme: {
     screens: {
 

@@ -17,7 +17,7 @@ export default function Navbar() {
                         }}
                         layout={'fill'}
                         objectFit={'contain'}
-                        src={'/images/navbar/logo.svg'}
+                        src={'/images/sections/navbar/logo.svg'}
                         alt={"Logo"}
                         className={"cursor-pointer outline-0 remove-highlight z-[115]"}
                     />
