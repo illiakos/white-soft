@@ -16,7 +16,6 @@ export default function Home() {
         <Services/>
         <Projects/>
         <Steps/>
-        <Projects/>
         <Footer/>
     </main>
   )
