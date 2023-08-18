@@ -6,6 +6,11 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    screens: {
+
+      '3xl': '1200px',
+      // => @media (min-width: 2536px) { ... }
+    },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',

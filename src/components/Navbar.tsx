@@ -8,7 +8,7 @@ export default function Navbar() {
 
 
     return (
-        <header className={"flex w-full h-fit mx-16 mt-8 justify-between font-primary"}>
+        <header className={"flex h-fit mx-32 mt-8 justify-between font-primary"}>
                 <div className={"relative w-64"}>
                     <Image
                         draggable={false}
