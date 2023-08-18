@@ -5,7 +5,13 @@ import Scroller from "@/components/sections/services/components/Scroller";
 import Modal from "@/components/sections/services/components/Modal";
 import {useState} from "react";
 
-export default function ServiceCard({title, imageSrc}) {
+
+interface ServiceCardProps {
+    title: string;
+    imageSrc: string;
+}
+
+export default function ServiceCard({title, imageSrc} :ServiceCardProps) {
 
     const [modalTrigger, setModalTrigger] = useState(false);
 

@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import {useRouter} from "next/router";
 import {BiErrorCircle} from "react-icons/bi";
 
-export default function Modal({ trigger }) {
+interface ModalProps {
+    trigger: boolean;
+}
+
+export default function Modal({ trigger } :ModalProps) {
 
 
     const [visible, setVisible] = useState(false);
