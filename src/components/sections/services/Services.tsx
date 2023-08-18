@@ -1,16 +1,15 @@
-import Image from 'next/image'
-import {useRouter} from "next/router";
-import { HiArrowRight } from 'react-icons/hi';
+
+import Scroller from "@/components/sections/services/components/Scroller";
 
 export default function Services() {
 
-    const  router = useRouter();
 
     return (
-        <section className={"flex h-fit mx-32 justify-between font-primary"}>
-            <h1 className={"text-5xl font-semibold text-text-black self-end"}>
+        <section className={"flex flex-col h-fit mt-16 mx-32 justify-between font-primary"}>
+            <h1 className={"text-5xl font-semibold text-text-black self-start"}>
                 SERVICES
             </h1>
+            <Scroller/>
         </section>
     )
 }
