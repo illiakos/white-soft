@@ -11,12 +11,12 @@ export default function Home() {
   return (
     <main className={"flex flex-col max-w-screen min-h-full bg-primary-light-blue"}>
         <Navbar/>
-        <Primary/>
-        <About/>
-        <Services/>
-        <Projects/>
-        <Steps/>
-        <Footer/>
+        <Primary  />
+        <About  />
+        <Services  />
+        <Projects  />
+        <Steps />
+        <Footer />
     </main>
   )
 }

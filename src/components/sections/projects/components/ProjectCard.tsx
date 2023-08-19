@@ -10,7 +10,7 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ title, imageSrc, comingSoon, description }: ProjectCardProps) {
     return (
-        <div className={"p-8 flex flex-col bg-white rounded-xl items-center justify-center"}>
+        <div className={"p-4 lg:p-8 w-72 sm:w-80 lg:w-96 flex flex-col bg-white rounded-xl items-center justify-center"}>
             <div className={"relative w-2/3 pb-56"}>
                 <Image
                     draggable={false}
@@ -18,23 +18,21 @@ export default function ProjectCard({ title, imageSrc, comingSoon, description }
                     objectFit={'contain'}
                     src={imageSrc}
                     alt={"Logo"}
-                    className={"self-end cursor-pointer hover:scale-105 transition-all duration-500"}
+                    className={`self-end cursor-pointer hover:scale-110 transition-all duration-500 ease-in-out ${title == "REST TV" ? "scale-110 hover:scale-125" : "scale-100 hover:scale-110"}`}
                 />
             </div>
-            <h2 className={"text-text-black font-bold text-2xl mt-8 self-center"}>{title}</h2>
+            <h2 className={"text-text-black font-bold text-lg lg:text-2xl mt-4 lg:mt-8 self-center"}>{title}</h2>
 
             {comingSoon ? (
                 // Project is coming soon: display question mark and "Coming soon" text
-                <p className={"text-text-grey font-medium text-lg self-center text-center"}>
-                    Coming soon
-                </p>
+                <></>
             ) : (
                 // Normal project: display description and "Read more" button
                 <>
-                    <p className={"text-text-grey font-medium text-lg self-center text-center"}>
+                    <p className={"text-text-grey font-medium text-sm lg:text-lg self-center text-center"}>
                         {description}
                     </p>
-                    <button className={"bg-primary-blue text-xl text-white font-semibold w-full rounded-xl py-4 mt-4"}>
+                    <button className={"bg-primary-blue text-md lg:text-xl text-white font-semibold w-full rounded-xl py-3 lg:py-4 mt-4 hover:scale-105 hover:bg-blue-7 transition-all duration-500 ease-in-out"}>
                         Read more
                     </button>
                 </>

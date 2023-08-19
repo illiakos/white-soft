@@ -21,7 +21,7 @@ export default function ServiceCard({title, imageSrc} :ServiceCardProps) {
     };
 
     return (
-        <div className={"p-4 h-96 w-96 flex flex-col bg-white rounded-xl items-center justify-center"}>
+        <div className={"p-4 w-64 h-64 lg:h-96 lg:w-96 flex flex-col bg-white rounded-xl items-center justify-center"}>
             <div className={"relative w-2/3 h-2/3"}>
                 <Image
                     draggable={false}
@@ -29,11 +29,11 @@ export default function ServiceCard({title, imageSrc} :ServiceCardProps) {
                     objectFit={'contain'}
                     src={imageSrc}
                     alt={"Logo"}
-                    className={"self-end cursor-pointer hover:scale-105 transition-all duration-500"}
+                    className={"self-end cursor-pointer hover:scale-110 transition-all duration-500 ease-in-out"}
                     onClick={handleClick}
                 />
             </div>
-            <h2 className={"text-text-black font-bold text-2xl mt-8 self-center"}>{title}</h2>
+            <h2 className={"text-text-black font-bold text-lg lg:text-2xl mt-8 self-center"}>{title}</h2>
             <Modal trigger={modalTrigger}/>
         </div>
     )
