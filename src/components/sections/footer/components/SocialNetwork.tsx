@@ -27,7 +27,7 @@ export default function SocialNetwork({imageSrc, link} :SocialNetworkProps) {
                         objectFit={'contain'}
                         src={imageSrc}
                         alt={"Logo"}
-                        className={"cursor-pointer outline-0 remove-highlight z-[115]"}
+                        className={"cursor-pointer outline-0 remove-highlight z-[115] hover:scale-110 duration-500 transition-all ease-in-out"}
                     />
                 </div>
             </li>
