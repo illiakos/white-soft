@@ -69,6 +69,7 @@ module.exports = {
       'error':'#F97364',
       'black-rgba':'rgba(0,0,0,0.90)'
     },
+
     extend: {
       fontFamily:{
         'primary': ['Montserrat']

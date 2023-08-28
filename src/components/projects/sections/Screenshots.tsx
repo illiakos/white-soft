@@ -1,82 +1,106 @@
-import React, {useState} from 'react';
-import Image from "next/image";
-import {AiOutlineLeft, AiOutlineRight} from "react-icons/ai";
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
+import {IoArrowBack} from "react-icons/io5";
+import {useRouter} from "next/router";
 
 interface ScreenshotsProps {
     screenshots: string[];
 }
 
 const Screenshots: React.FC<ScreenshotsProps> = ({ screenshots }) => {
+    const [mainImageIndex, setMainImageIndex] = useState<number>(0);
+    const [fullscreenImageIndex, setFullscreenImageIndex] = useState<number | null>(null);
 
-    const [mainImageIndex, setMainImageIndex] = useState<number>(3);
-
-    const scrollMainImage = (type:boolean) => {
+    const scrollMainImage = (type: boolean) => {
         if (type) {
-            if (mainImageIndex > screenshots.length-2) {
-                setMainImageIndex(0);
-            } else {
-                setMainImageIndex(mainImageIndex+1);
-            }
+            setMainImageIndex((mainImageIndex + 1) % screenshots.length);
         } else {
-            if (mainImageIndex > 0) {
-                setMainImageIndex(screenshots.length-1);
-            } else {
-                setMainImageIndex(mainImageIndex-1);
-            }
+            setMainImageIndex((mainImageIndex - 1 + screenshots.length) % screenshots.length);
         }
-        console.log("=============")
-        console.log(mainImageIndex)
-        console.log(mainImageIndex+1 > screenshots.length-1 ? mainImageIndex - screenshots.length: mainImageIndex+1)
-        console.log(mainImageIndex+2 > screenshots.length-1 ? mainImageIndex + 1 - screenshots.length : mainImageIndex+2)
-        console.log(mainImageIndex+3 > screenshots.length-1 ? mainImageIndex + 2 - screenshots.length : mainImageIndex+3)
-    }
+    };
+
+    const scrollFullScreenMainImage = (type: boolean) => {
+        if (fullscreenImageIndex !== null) {
+            const newIndex = (fullscreenImageIndex + (type ? 1 : -1) + screenshots.length) % screenshots.length;
+            setFullscreenImageIndex(newIndex);
+        }
+    };
+
+    const openFullscreenImage = (index: number) => {
+        setFullscreenImageIndex(index);
+    };
+
+    const closeFullscreenImage = () => {
+        setFullscreenImageIndex(null);
+    };
+
+    const router = useRouter();
 
     return (
-        <section className={"grid gap-4 grid-cols-3 grid-rows-3 h-[50rem] justify-center w-full font-primary"}>
-            {/*<button onClick={event => console.log(screenshots[mainImageIndex-2])}>ads</button>*/}
-            <div className={"relative col-span-3 rounded-xl row-span-2"}>
+        <section className={'grid gap-4 grid-cols-3 lg:grid-rows-3 grid-rows-4 lg:h-[50rem] h-[30rem] justify-center w-full font-primary lg:mt-0 mt-8'}>
+
+            <div className={'relative col-span-3 rounded-xl lg:row-span-2 row-span-3'} style={{ userSelect: 'none' }}>
                 <Image
                     draggable={false}
                     layout={'fill'}
                     objectFit={'cover'}
                     src={screenshots[mainImageIndex]}
-                    alt={"Logo"}
-                    className={"rounded-xl"}
+                    alt={'Screenshot'}
+                    className={'rounded-xl cursor-pointer'}
+                    onClick={() => openFullscreenImage(mainImageIndex)}
                 />
-                <AiOutlineRight className={"absolute top-1/2 bottom-1/2 right-4 text-white text-3xl cursor-pointer"} onClick={() => scrollMainImage(true)}/>
-                <AiOutlineLeft className={"absolute top-1/2 bottom-1/2 left-4 text-white text-3xl cursor-pointer"} onClick={() => scrollMainImage(false)}/>
-            </div>
-            <div className={"relative rounded-xl"}>
-                <Image
-                    draggable={false}
-                    layout={'fill'}
-                    objectFit={'cover'}
-                    src={screenshots[mainImageIndex+1 > screenshots.length-1 ? screenshots.length - mainImageIndex : mainImageIndex+1]}
-                    alt={"Logo"}
-                    className={"rounded-xl"}
+                <AiOutlineRight
+                    className={'absolute top-1/2 bottom-1/2 right-4 text-white text-3xl cursor-pointer'}
+                    onClick={() => scrollMainImage(true)}
                 />
-            </div>
-            <div className={"relative rounded-xl"}>
-                <Image
-                    draggable={false}
-                    layout={'fill'}
-                    objectFit={'cover'}
-                    src={screenshots[mainImageIndex+2 > screenshots.length-1 ? screenshots.length - mainImageIndex - 1 : mainImageIndex+2]}
-                    alt={"Logo"}
-                    className={"rounded-xl"}
+                <AiOutlineLeft
+                    className={'absolute top-1/2 bottom-1/2 left-4 text-white text-3xl cursor-pointer'}
+                    onClick={() => scrollMainImage(false)}
+                />
+                <IoArrowBack
+                    className={'absolute top-6 left-4 text-white text-3xl cursor-pointer'}
+                    onClick={() => router.back()}
                 />
             </div>
-            <div className={"relative rounded-xl"}>
-                <Image
-                    draggable={false}
-                    layout={'fill'}
-                    objectFit={'cover'}
-                    src={screenshots[mainImageIndex+3 > screenshots.length-1 ? screenshots.length - mainImageIndex - 2 : mainImageIndex+3]}
-                    alt={"Logo"}
-                    className={"rounded-xl"}
-                />
-            </div>
+            {[0, 1, 2].map((offset) => (
+                <div key={offset} className={'relative rounded-xl'}>
+                    <Image
+                        draggable={false}
+                        layout={'fill'}
+                        objectFit={'cover'}
+                        src={screenshots[(mainImageIndex + offset + 1) % screenshots.length]}
+                        alt={'Screenshot'}
+                        className={'rounded-xl cursor-pointer'}
+                        onClick={() => openFullscreenImage((mainImageIndex + offset + 1) % screenshots.length)}
+                    />
+                </div>
+            ))}
+            {fullscreenImageIndex !== null && (
+                <div className={'fixed inset-0 flex items-center justify-center z-[999]'}>
+                    <div className={' absolute inset-0 bg-text-black opacity-95 backdrop-blur-xl' } style={{ userSelect: 'none' }}/>
+                    <AiOutlineLeft
+                        className={'absolute top-1/2 bottom-1/2 lg:left-1/4 left-4 text-white text-3xl cursor-pointer z-[9999]'}
+                        onClick={() => scrollFullScreenMainImage(false)}
+                    />
+                    <Image
+                        draggable={false}
+                        layout={'fill'}
+                        objectFit={'contain'}
+                        src={screenshots[fullscreenImageIndex]}
+                        alt={'Screenshot'}
+                        className={'cursor-pointer'}
+                        onClick={closeFullscreenImage}
+                        style={{ userSelect: 'none' }}
+                    />
+                    <AiOutlineRight
+                        className={'absolute top-1/2 bottom-1/2 lg:right-1/4 right-4 text-white text-3xl cursor-pointer z-[9999]'}
+                        onClick={() => scrollFullScreenMainImage(true)}
+                    />
+                </div>
+            )}
         </section>
+
     );
 };
 

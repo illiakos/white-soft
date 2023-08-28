@@ -23,6 +23,7 @@ export default function ProjectCard({ title, imageSrc, comingSoon, description, 
                     objectFit={'contain'}
                     src={imageSrc}
                     alt={"Logo"}
+                    onClick={() => router.push(link)}
                     className={`self-end cursor-pointer hover:scale-110 transition-all duration-500 ease-in-out ${title == "REST TV" ? "scale-110 hover:scale-125" : "scale-100 hover:scale-110"}`}
                 />
             </div>
@@ -34,10 +35,10 @@ export default function ProjectCard({ title, imageSrc, comingSoon, description, 
             ) : (
                 // Normal projects: display description and "Read more" button
                 <>
-                    <p className={"text-text-grey font-medium text-sm lg:text-lg self-center text-center"}>
+                    <p className={"text-text-grey font-medium text-sm lg:text-lg self-center text-center"}  onClick={() => router.push(link)}>
                         {description}
                     </p>
-                    <button onClick={event => router.push(link)} className={"bg-primary-blue text-md lg:text-xl text-white font-semibold w-full rounded-xl py-3 lg:py-4 mt-4 hover:scale-105 hover:bg-blue-7 transition-all duration-500 ease-in-out"}>
+                    <button onClick={() => router.push(link)} className={"bg-primary-blue text-md lg:text-xl text-white font-semibold w-full rounded-xl py-3 lg:py-4 mt-4 hover:scale-105 hover:bg-blue-7 transition-all duration-500 ease-in-out"}>
                         Read more
                     </button>
                 </>
