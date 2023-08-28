@@ -38,7 +38,7 @@ const Screenshots: React.FC<ScreenshotsProps> = ({ screenshots }) => {
     const router = useRouter();
 
     return (
-        <section className={'grid gap-4 grid-cols-3 lg:grid-rows-3 grid-rows-4 lg:h-[50rem] h-[30rem] justify-center w-full font-primary lg:mt-0 mt-8'}>
+        <section className={'grid gap-4 grid-cols-3 lg:grid-rows-3 grid-rows-1 lg:h-[50rem] h-[25rem] justify-center w-full font-primary lg:mt-0 mt-8'}>
 
             <div className={'relative col-span-3 rounded-xl lg:row-span-2 row-span-3'} style={{ userSelect: 'none' }}>
                 <Image
@@ -51,15 +51,15 @@ const Screenshots: React.FC<ScreenshotsProps> = ({ screenshots }) => {
                     onClick={() => openFullscreenImage(mainImageIndex)}
                 />
                 <AiOutlineRight
-                    className={'absolute top-1/2 bottom-1/2 right-4 text-white text-3xl cursor-pointer'}
+                    className={'absolute top-1/2 bottom-1/2 right-4 text-text-black text-3xl cursor-pointer'}
                     onClick={() => scrollMainImage(true)}
                 />
                 <AiOutlineLeft
-                    className={'absolute top-1/2 bottom-1/2 left-4 text-white text-3xl cursor-pointer'}
+                    className={'absolute top-1/2 bottom-1/2 left-4 text-text-black text-3xl cursor-pointer'}
                     onClick={() => scrollMainImage(false)}
                 />
                 <IoArrowBack
-                    className={'absolute top-6 left-4 text-white text-3xl cursor-pointer'}
+                    className={'absolute top-6 left-4 text-text-black text-3xl cursor-pointer'}
                     onClick={() => router.back()}
                 />
             </div>
@@ -80,7 +80,7 @@ const Screenshots: React.FC<ScreenshotsProps> = ({ screenshots }) => {
                 <div className={'fixed inset-0 flex items-center justify-center z-[999]'}>
                     <div className={' absolute inset-0 bg-text-black opacity-95 backdrop-blur-xl' } style={{ userSelect: 'none' }}/>
                     <AiOutlineLeft
-                        className={'absolute top-1/2 bottom-1/2 lg:left-1/4 left-4 text-white text-3xl cursor-pointer z-[9999]'}
+                        className={'absolute top-1/2 bottom-1/2 left-4 text-text-black text-3xl cursor-pointer z-[9999]'}
                         onClick={() => scrollFullScreenMainImage(false)}
                     />
                     <Image
@@ -94,7 +94,7 @@ const Screenshots: React.FC<ScreenshotsProps> = ({ screenshots }) => {
                         style={{ userSelect: 'none' }}
                     />
                     <AiOutlineRight
-                        className={'absolute top-1/2 bottom-1/2 lg:right-1/4 right-4 text-white text-3xl cursor-pointer z-[9999]'}
+                        className={'absolute top-1/2 bottom-1/2 right-4 text-text-black text-3xl cursor-pointer z-[9999]'}
                         onClick={() => scrollFullScreenMainImage(true)}
                     />
                 </div>
