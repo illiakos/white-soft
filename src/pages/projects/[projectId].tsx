@@ -33,10 +33,10 @@ const ProjectPage:FC = () => {
             description: "Rest tv- it’s our full-stack project. OTT platform. Here you can watch some tv or movies. Adding to it - here are implemented features such as archive and schedule. " +
                 "Also here are implemented email sending and subscription using credit card features.  All of this is fully built using APIs ",
             screenshots: [
-                "/images/projects/screenshots/rest-tv/1.jpg",
+                "/images/projects/screenshots/rest-tv/1.png",
                 "/images/projects/screenshots/rest-tv/2.jpg",
                 "/images/projects/screenshots/rest-tv/3.jpg",
-                "/images/projects/screenshots/rest-tv/4.png",
+                "/images/projects/screenshots/rest-tv/4.jpg",
                 "/images/projects/screenshots/rest-tv/5.jpg",
                 "/images/projects/screenshots/rest-tv/6.jpg",
                 "/images/projects/screenshots/rest-tv/7.jpg",
@@ -64,7 +64,7 @@ const ProjectPage:FC = () => {
                 "/images/projects/screenshots/dvbt/1.png",
                 "/images/projects/screenshots/dvbt/2.png",
                 "/images/projects/screenshots/dvbt/3.png",
-                "/images/projects/screenshots/dvbt/4.png",
+                "/images/projects/screenshots/dvbt/1.png",
                 "/images/projects/screenshots/dvbt/5.png",
             ],
             technologies: [

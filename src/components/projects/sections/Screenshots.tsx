@@ -80,7 +80,7 @@ const Screenshots: React.FC<ScreenshotsProps> = ({ screenshots }) => {
                 <div className={'fixed inset-0 flex items-center justify-center z-[999]'}>
                     <div className={' absolute inset-0 bg-text-black opacity-95 backdrop-blur-xl' } style={{ userSelect: 'none' }}/>
                     <AiOutlineLeft
-                        className={'absolute top-1/2 bottom-1/2 left-4 text-text-black text-3xl cursor-pointer z-[9999]'}
+                        className={'absolute top-1/2 bottom-1/2 left-4 text-white text-3xl cursor-pointer z-[9999]'}
                         onClick={() => scrollFullScreenMainImage(false)}
                     />
                     <Image
@@ -94,7 +94,7 @@ const Screenshots: React.FC<ScreenshotsProps> = ({ screenshots }) => {
                         style={{ userSelect: 'none' }}
                     />
                     <AiOutlineRight
-                        className={'absolute top-1/2 bottom-1/2 right-4 text-text-black text-3xl cursor-pointer z-[9999]'}
+                        className={'absolute top-1/2 bottom-1/2 right-4 text-white text-3xl cursor-pointer z-[9999]'}
                         onClick={() => scrollFullScreenMainImage(true)}
                     />
                 </div>
