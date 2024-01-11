@@ -8,6 +8,7 @@ import Steps from "@/components/sections/steps/Steps";
 import Footer from "@/components/sections/footer/Footer";
 
 export default function Home() {
+  //Beta test commit repository update
   return (
     <main className={"flex flex-col max-w-screen min-h-full bg-primary-light-blue"}>
         <Navbar/>
