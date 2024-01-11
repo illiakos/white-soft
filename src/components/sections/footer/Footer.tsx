@@ -47,7 +47,7 @@ export default function Footer() {
                         className={"cursor-pointer outline-0 remove-highlight z-[115]"}
                     />
                 </div>
-                <p className={"self-center text-center sm:text-start lg:self-start text-primary-light-blue"}>Contact us and  discuss details of project</p>
+                <p className={"self-center text-center sm:text-start lg:self-start text-primary-light-blue"}>Made by Andrii Chykerechko </p>
             </div>
             <div className={"hidden lg:flex flex-col"}>
                 <h3 className={"text-white text-2xl font-semibold"}>Useful links</h3>
